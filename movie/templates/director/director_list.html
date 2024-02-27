@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Directors</h2>
+  <ul>
+    {% for director in directors %}
+      <li><a href="{% url 'director-detail' pk=director.pk %}">{{ director.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% include 'pagination.html' %}
+{% endblock %}

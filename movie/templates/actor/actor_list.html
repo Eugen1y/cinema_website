@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Actors</h2>
+  <ul>
+    {% for actor in actors %}
+      <li><a href="{% url 'actor-detail' pk=actor.pk %}">{{ actor.name }}</a></li>
+    {% endfor %}
+  </ul>
+{% include 'pagination.html' %}
+{% endblock %}

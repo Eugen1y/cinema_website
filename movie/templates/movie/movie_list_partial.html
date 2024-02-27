@@ -1,0 +1,13 @@
+{% for movie in movies %}
+   <li>
+        <a href="{% url 'movie-detail' pk=movie.pk %}"><span><h1>{{ movie.title }}</h1></span></a>
+        <p>Year: {{ movie.year }}</p>
+        <p>Directors:
+            {% for director in movie.directors.all %}{{ director.name }}{% if not forloop.last %}, {% endif %}{% endfor %}
+        </p>
+
+
+        <p>Actors: {% for actor in movie.actors.all %}{{ actor.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+    </li>
+
+{% endfor %}

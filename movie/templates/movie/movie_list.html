@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<h1>Movie List</h1>
+    <form id="sort-form" method="get" >
+
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+</form>
+
+<div id="movie-list">
+    <ul>
+    {% include 'movie/movie_list_partial.html' with movies=movies %}
+    </ul>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="{% static 'js/filter.js' %}"></script>
+{% include 'pagination.html' %}
+{% endblock %}
